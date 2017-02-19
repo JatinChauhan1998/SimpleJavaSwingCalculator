@@ -10,10 +10,10 @@ Unlike AWT components, Swing components are not implemented by platform-specific
 Though Swing is intended to be replaced by JavaFX, it will remain part of the Java SE specification for the foreseeable future.
 
  * This is a Sample Java project
- * to build a Simple Calculator based 
- * on Java Swing.
+ to build a Simple Calculator based 
+ on Java Swing.
  * This calculator is the basic version
- * and can only operate using two operands
+ and can only operate using two operands
  * Thus, making it less complicated for the beginners
  
  Feel free to contact for any queries
