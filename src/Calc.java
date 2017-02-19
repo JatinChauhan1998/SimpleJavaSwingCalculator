@@ -1,18 +1,35 @@
 import javax.swing.*;
 import java.awt.event.*;
- 
- 
+/*
+ * This is a Sample Java project
+ * to build a Simple Calculator based 
+ * on Java Swing.
+ * This calculator is the basic version
+ * and can only operate using two operands
+ * Thus, making it less complicated for the beginners
+ * Feel free to contact for any queries
+ * https://github.com/JatinChauhan1998
+ * */ 
+
+
+//class implementing the ActionListener interface to recognize mouse actions
 class Calc implements ActionListener
 {
-    JFrame f;
-    JTextField t;
+    JFrame f;//to make a frame so as to put necessary elements on it
+    JTextField t; //text field where you can put operands and display the results
+    //initializing the buttons
     JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdiv,bmul,bsub,badd,bdec,beq,bdel,bclr;
- 
+    
+    
+    //initializing the operands and the result
     static double a=0,b=0,result=0;
     static int operator=0;
- 
+    
+    //Calc(), is a constructor that will be initialized at the 
+    //beginning of the program where the main function starts
     Calc()
     {
+    	//initializing the buttons
         f=new JFrame("Calculator");
         t=new JTextField();
         b1=new JButton("1");
@@ -34,9 +51,11 @@ class Calc implements ActionListener
         bdel=new JButton("CC");
         bclr=new JButton("C");
         
-        t.setBounds(0,0,200,30);
         
-        
+        //setting the bounds where each element will obtain a unique space.
+        //NOTE- THE ORIGIN STARTS FROM THE TOP LEFT CORNER OF THE FRAME
+        t.setBounds(0,0,200,30); // TEXT filed bounds
+                
         b7.setBounds(0,30,50,40);
         b8.setBounds(50,30,50,40);
         b9.setBounds(100,30,50,40);
@@ -60,6 +79,7 @@ class Calc implements ActionListener
         bdel.setBounds(0,190,100,40);
         bclr.setBounds(100,190,100,40);
         
+        //adding the elements to the main frame
         f.add(t);
         f.add(b7);
         f.add(b8);
@@ -80,12 +100,15 @@ class Calc implements ActionListener
         f.add(bdel);
         f.add(bclr);
         
+        //basic frame initialization
         f.setLayout(null);
         f.setVisible(true);
         f.setSize(200,260);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setResizable(false);
         
+        //implementing the action listener to
+        //detect the click on the JButtons
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
@@ -105,7 +128,11 @@ class Calc implements ActionListener
         bdel.addActionListener(this);
         bclr.addActionListener(this);
     }
- 
+    
+    
+    //This method is to perform the necessary functions
+    //after the mount click is initiated on the JButton
+    //and the operands is loaded in the TextField
     public void actionPerformed(ActionEvent e)
     {
         if(e.getSource()==b1)
@@ -141,6 +168,7 @@ class Calc implements ActionListener
         if(e.getSource()==bdec)
             t.setText(t.getText().concat("."));
         
+        //Addition
         if(e.getSource()==badd)
         {
             a=Double.parseDouble(t.getText());
@@ -148,6 +176,7 @@ class Calc implements ActionListener
             t.setText("");
         } 
         
+        //Subtraction
         if(e.getSource()==bsub)
         {
             a=Double.parseDouble(t.getText());
@@ -155,6 +184,7 @@ class Calc implements ActionListener
             t.setText("");
         }
         
+        //Multiplication
         if(e.getSource()==bmul)
         {
             a=Double.parseDouble(t.getText());
@@ -162,6 +192,7 @@ class Calc implements ActionListener
             t.setText("");
         }
         
+        //Division
         if(e.getSource()==bdiv)
         {
             a=Double.parseDouble(t.getText());
@@ -169,11 +200,12 @@ class Calc implements ActionListener
             t.setText("");
         }
         
+        //Equals to..
         if(e.getSource()==beq)
         {
             b=Double.parseDouble(t.getText());
         
-            switch(operator)
+            switch(operator) // Different switch cases for different operators
             {
                 case 1: result=a+b;
                     break;
@@ -204,9 +236,11 @@ class Calc implements ActionListener
             t.setText(t.getText()+s.charAt(i));
         }        
     }
- 
+    
+    //Main method
+    //from where the execution begins
     public static void main(String...s)
     {
-        new Calc();
+        new Calc();//calling the Calc() constructor
     }
 }
